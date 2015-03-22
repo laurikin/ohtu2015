@@ -4,17 +4,9 @@ public class Viitegeneraattori implements IViitegeneraattori {
 
     private static Viitegeneraattori instanssi;
 
-    public static Viitegeneraattori getInstance() {
-        if (instanssi == null) {
-            instanssi = new Viitegeneraattori();
-        }
-
-        return instanssi;
-    }
-    
     private int seuraava;
     
-    private Viitegeneraattori(){
+    public Viitegeneraattori(){
         seuraava = 1;    
     }
     

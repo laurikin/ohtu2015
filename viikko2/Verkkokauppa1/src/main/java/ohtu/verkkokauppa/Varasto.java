@@ -6,19 +6,11 @@ public class Varasto implements IVarasto {
 
     private static Varasto instanssi;
 
-    public static Varasto getInstance() {
-        if (instanssi == null) {
-            instanssi = new Varasto();
-        }
-
-        return instanssi;
-    }
-
-    private Kirjanpito kirjanpito;
+    private IKirjanpito kirjanpito;
     private HashMap<Tuote, Integer> saldot;
 
-    private Varasto() {
-        kirjanpito = Kirjanpito.getInstance();
+    public Varasto(IKirjanpito kirjanpito) {
+        this.kirjanpito = kirjanpito;
         saldot = new HashMap<Tuote, Integer>();
         alustaTuotteet();
     }
