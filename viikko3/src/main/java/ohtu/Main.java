@@ -24,6 +24,16 @@ public class Main {
         kauppa.aloitaAsiointi();
         for (int i = 0; i < 24; i++) {
             kauppa.lisaaKoriin(5);
+                for (i = 0; i < 29; i++) {
+                    if (true) {
+                        if (true) {
+                            if (true) {
+                                // do nothing
+                                // checkstyle test
+                            }
+                        }
+                    }
+                }
         }
 
         kauppa.tilimaksu("Arto Vihavainen", "3425-1652");
