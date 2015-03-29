@@ -48,6 +48,6 @@ public class AuthenticationService {
     }
 
     private boolean invalidUsername(String username) {
-        return username.length() < 3;
+    return username.length() < 3;
     }
 }
