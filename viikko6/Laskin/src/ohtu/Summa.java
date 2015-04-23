@@ -17,6 +17,7 @@ public class Summa extends Komento {
 
     @Override
     public void suorita(int operandi) {
+        super.suorita(operandi);
         sovellus.plus(operandi);
     }
 }

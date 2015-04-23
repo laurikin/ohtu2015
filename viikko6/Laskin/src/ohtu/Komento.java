@@ -11,10 +11,20 @@ package ohtu;
  */
 public abstract class Komento {
     protected final Sovelluslogiikka sovellus;
+    protected int edellinenArvo;
 
     public Komento(Sovelluslogiikka sovellus) {
         this.sovellus = sovellus;
     }
-    public abstract void suorita(int operandi2);
+
+    public void suorita(int operandi) {
+        edellinenArvo = sovellus.tulos();
+    }
+
+    public void peru() {
+        sovellus.nollaa();
+        sovellus.plus(edellinenArvo);
+    }
+
 }
 

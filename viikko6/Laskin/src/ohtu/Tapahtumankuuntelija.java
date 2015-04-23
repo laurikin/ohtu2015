@@ -16,6 +16,7 @@ public class Tapahtumankuuntelija implements ActionListener {
     private JTextField syotekentta;
     private Sovelluslogiikka sovellus;
     private Map<JButton, Komento> komennot;
+    private Komento edellinen;
  
     public Tapahtumankuuntelija(JButton plus, JButton miinus, JButton nollaa, JButton undo, JTextField tuloskentta, JTextField syotekentta) {
         this.plus = plus;
@@ -42,7 +43,14 @@ public class Tapahtumankuuntelija implements ActionListener {
 
         Komento komento = komennot.get(ae.getSource());
 
-        komento.suorita(arvo);
+        if  (komento!=null) {
+            komento.suorita(arvo);
+            edellinen = komento;
+        } else {
+            // toiminto oli undo
+            edellinen.peru();
+            edellinen = null;
+        }
         
         int laskunTulos = sovellus.tulos();
          
@@ -50,7 +58,7 @@ public class Tapahtumankuuntelija implements ActionListener {
         tuloskentta.setText("" + sovellus.tulos());
         
         nollaa.setEnabled(sovellus.tulos() != 0);
-        undo.setEnabled(false);
+        undo.setEnabled(edellinen != null);
     }
  
 }

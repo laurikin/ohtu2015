@@ -17,8 +17,8 @@ class Nollaa extends Komento {
 
     @Override
     public void suorita(int operandi) {
+        super.suorita(operandi);
         sovellus.nollaa();
     }
-
     
 }
